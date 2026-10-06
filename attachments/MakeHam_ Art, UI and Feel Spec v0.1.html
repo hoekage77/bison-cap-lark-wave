@@ -1,0 +1,244 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}</style><style>:root{color-scheme:light dark;--md-bg:#fff;--md-text:rgba(0,0,0,.8);--md-muted:rgba(0,0,0,.6);--md-fill:rgba(0,0,0,.04);--md-fill-strong:rgba(0,0,0,.06);--md-rule:rgba(0,0,0,.1);--md-rule-strong:rgba(0,0,0,.16);--md-link:hsl(210 100% 45%)}@media (prefers-color-scheme:dark){:root:where(:not([data-theme="light"])){--md-bg:#0d0d0d;--md-text:rgba(255,255,255,.85);--md-muted:rgba(255,255,255,.6);--md-fill:rgba(255,255,255,.06);--md-fill-strong:rgba(255,255,255,.09);--md-rule:rgba(255,255,255,.14);--md-rule-strong:rgba(255,255,255,.22);--md-link:hsl(210 100% 72%)}}:root[data-theme="dark"]{color-scheme:dark;--md-bg:#0d0d0d;--md-text:rgba(255,255,255,.85);--md-muted:rgba(255,255,255,.6);--md-fill:rgba(255,255,255,.06);--md-fill-strong:rgba(255,255,255,.09);--md-rule:rgba(255,255,255,.14);--md-rule-strong:rgba(255,255,255,.22);--md-link:hsl(210 100% 72%)}:root[data-theme="light"]{color-scheme:light}@media print{:root,:root[data-theme="dark"]{color-scheme:light;--md-bg:#fff;--md-text:rgba(0,0,0,.8);--md-muted:rgba(0,0,0,.6);--md-fill:rgba(0,0,0,.04);--md-fill-strong:rgba(0,0,0,.06);--md-rule:rgba(0,0,0,.1);--md-rule-strong:rgba(0,0,0,.16);--md-link:hsl(210 100% 45%)}}body{background:var(--md-bg);color:var(--md-text);max-width:720px;margin:0 auto;padding:32px;display:flex;flex-direction:column;gap:10px;font:14px/1.55 -apple-system,BlinkMacSystemFont,'SF Pro','Segoe UI',sans-serif;overflow-wrap:break-word}body>:first-child{margin-top:0}h1,h2,h3,h4,h5,h6{margin:6px 0 0;line-height:1.25;font-weight:600;text-wrap:balance}h1{font-size:1.35em}h2{font-size:1.15em;color:var(--md-muted)}h3,h4,h5,h6{font-size:1em}p,ul,ol,blockquote,table,pre,hr{margin:0}strong{font-weight:600}a{color:var(--md-link);text-decoration:none}a:hover{text-decoration:underline}ul,ol{display:flex;flex-direction:column;gap:6px;padding-left:22px}ul{list-style:disc}ol{list-style:decimal}:is(li,td,th)>*+:is(p,ul,ol,blockquote){margin-top:6px}blockquote{display:flex;flex-direction:column;gap:10px;border-left:2px solid var(--md-rule);padding-left:10px;color:var(--md-muted)}:not(pre)>code{background:var(--md-fill);padding:1px 3px;border-radius:4px;font:.92em 'SF Mono',ui-monospace,Menlo,Consolas,monospace}a>code{background:none;color:inherit}pre{background:var(--md-fill);padding:10px 12px;border-radius:6px;overflow-x:auto;font:12px/1.5 'SF Mono',ui-monospace,Menlo,Consolas,monospace;margin-block:4px}pre code{background:none;padding:0;font:inherit}table{width:100%;border-collapse:separate;border-spacing:2px;font:inherit}th,td{padding:6px 8px;border-radius:3px;text-align:left;vertical-align:top}th{background:var(--md-fill-strong);font-weight:600}td{background:var(--md-fill)}:is(th,td) :not(pre)>code{background:transparent}hr{border:0;border-top:1px solid var(--md-rule-strong);margin-block:10px}img{max-width:100%;height:auto;border-radius:4px}</style>
+</head><body>
+<h1>MakeHam: Art, UI and Feel Spec v0.1</h1>
+<p><em>Companion to Game Spec v0.2. Defines how the game looks, sounds, and feels to play.</em></p>
+<hr>
+<h2>1. Style Direction</h2>
+<p><strong>&quot;Warm stylized realism.&quot;</strong> Real enough that a Nigerian player recognizes their world (the zinc roofs, block walls, red earth, and generator hum), stylized enough to run on a mid-range phone and look consistent.</p>
+<ul>
+<li><strong>Reference:</strong> the walled integrated-farm render (clean concrete, crisp roof lines, lush greens, soft sun).</li>
+<li><strong>Mood keywords:</strong> sunny, lived-in, colorful, proud, alive, tidy-but-real.</li>
+<li><strong>Not:</strong> gritty, gloomy, cartoonish-chibi, or photoreal noise.</li>
+<li><strong>Content tone: clean.</strong> Family-friendly (target rating about E10+ / Teen). No gore or nudity. Romance stays at dates, gifts, and flirting. Crime, scams, and hardship are shown through story and consequences, not graphic scenes.</li>
+</ul>
+<h2>2. Color Palette</h2>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Name</th>
+<th>Hex</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Earth</td>
+<td>Laterite red</td>
+<td><code>#C8542B</code></td>
+</tr>
+<tr>
+<td>Ground</td>
+<td>Harmattan sand</td>
+<td><code>#E3C9A0</code></td>
+</tr>
+<tr>
+<td>Foliage</td>
+<td>Farm green</td>
+<td><code>#4C9A3F</code></td>
+</tr>
+<tr>
+<td>Water</td>
+<td>River teal</td>
+<td><code>#2F7F86</code></td>
+</tr>
+<tr>
+<td>Roofs</td>
+<td>Zinc grey-blue</td>
+<td><code>#9FB3C8</code></td>
+</tr>
+<tr>
+<td>Walls</td>
+<td>Block cement</td>
+<td><code>#C9C5BD</code></td>
+</tr>
+<tr>
+<td>Accent</td>
+<td>Market gold</td>
+<td><code>#F2B138</code></td>
+</tr>
+<tr>
+<td>Nightlife</td>
+<td>Neon magenta</td>
+<td><code>#E0457B</code></td>
+</tr>
+<tr>
+<td>Night</td>
+<td>Indigo</td>
+<td><code>#1B1F3A</code></td>
+</tr>
+<tr>
+<td>UI base</td>
+<td>Warm cream</td>
+<td><code>#FFF6E5</code></td>
+</tr>
+<tr>
+<td>UI text</td>
+<td>Deep ink</td>
+<td><code>#2A2320</code></td>
+</tr>
+</tbody>
+</table>
+<p>Rules: keep the UI warm and light by day; shift to indigo with neon accents at night. Use gold for money and rewards only.</p>
+<h2>3. Camera and World</h2>
+<ul>
+<li><strong>Camera:</strong> orthographic, about 35° pitch, 45° yaw. Optional 90° rotation steps.</li>
+<li><strong>Zoom:</strong> 3 levels (close for interactions, mid for play, far for planning and build mode).</li>
+<li><strong>Grid:</strong> 1 m tiles. Walls, roofs, and props snap to the grid.</li>
+<li><strong>Time of day:</strong> dawn, day, golden hour, dusk, night, each with its own lighting and color grade.</li>
+<li><strong>Weather:</strong> clear, rainy season downpours (puddles, darker sky), harmattan haze (dusty, warm-beige tint), and heat shimmer.</li>
+<li><strong>Ambient life:</strong> birds, goats and chickens in yards, passing keke and danfo, laundry on lines, distant generators.</li>
+<li><strong>Depth cues:</strong> soft shadows, ambient occlusion baked into props, subtle depth fog at the far edge.</li>
+</ul>
+<h2>4. Characters</h2>
+<p><strong>Proportions:</strong> about 5.5 heads tall, slightly stylized (readable face, expressive hands). No chibi.</p>
+<p><strong>Customization (clean and inclusive):</strong></p>
+<ul>
+<li><strong>Skin tones:</strong> 12+ options spanning the real range of Nigerian skin tones, lit to look good in all lighting.</li>
+<li><strong>Hair:</strong> low cut, fade, afro, twists, locs, cornrows, braids, bantu knots, wraps, headtie, gele, durag, cap, hijab.</li>
+<li><strong>Outfits:</strong> ankara, adire, kaftan, agbada, buba and iro, native sets, jeans and tee, work uniform, school uniform, church or mosque wear, sportswear, nightlife fits.</li>
+<li><strong>Body types:</strong> 5 options, with fit adjusting automatically to outfits.</li>
+<li><strong>Extras:</strong> glasses, bags, jewelry, watches, shoes, face marks (optional), hats.</li>
+</ul>
+<p><strong>Animations (MVP):</strong>
+idle, walk, run, sit, sleep, eat, cook, wash, talk (2 variants), laugh, argue, phone, carry, farm work (feed, harvest), dance (3 styles), wave, celebrate, tired.</p>
+<p><strong>Expressions:</strong> simple facial morph targets (happy, sad, angry, tired, surprised, flirty) plus emote bubbles above heads.</p>
+<p><strong>NPC readability:</strong> every NPC has a distinct silhouette (hair, clothing color, or accessory) and a nameplate on interaction.</p>
+<p><strong>Technical (3D):</strong> about 5,000 to 7,000 tris per character, one 512×512 texture atlas per outfit set, 20 to 25 bone rig.</p>
+<p><strong>Low-end fallback (sprites):</strong> the same models baked into 8-direction sprite sheets (64×96 px at base) for very low-end Android devices. Characters and outfits stay identical, so only the rendering changes.</p>
+<h2>5. Environment and Textures</h2>
+<p><strong>Method:</strong> hand-painted textures with light weathering. Use trim sheets and texture atlases to keep draw calls low.</p>
+<table>
+<thead>
+<tr>
+<th>Material</th>
+<th>Look</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Corrugated zinc</td>
+<td>Blue-grey ridges, small rust streaks, bright sun spec</td>
+</tr>
+<tr>
+<td>Cement block wall</td>
+<td>Light grey, mortar lines, paint patches, small stains</td>
+</tr>
+<tr>
+<td>Laterite soil</td>
+<td>Red-orange, dry cracks when sunny, dark when wet</td>
+</tr>
+<tr>
+<td>Tarred and paved roads</td>
+<td>Worn asphalt, faded markings, patches</td>
+</tr>
+<tr>
+<td>Wood</td>
+<td>Warm brown, rough grain (coop, stilts, stalls)</td>
+</tr>
+<tr>
+<td>Farm and veg beds</td>
+<td>Rich dark soil, leafy crops with variation</td>
+</tr>
+<tr>
+<td>Tiles and floors</td>
+<td>Interior ceramic, patterned</td>
+</tr>
+<tr>
+<td>Textiles</td>
+<td><strong>Ankara, adire, and kente-style patterns</strong> as a reusable pattern library for clothes, curtains, market stalls, and UI trim</td>
+</tr>
+<tr>
+<td>Water</td>
+<td>Stylized teal with soft flow and ripples (pond, river)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Texture sizes:</strong> props 256 to 512, buildings 1024 atlases, characters 512. Use ETC2 or ASTC compression.</p>
+<p><strong>Environmental storytelling:</strong> painted shop signs, posters, handwritten price boards, phone-charging stalls, &quot;no light&quot; candle corners, football jerseys on lines. Make every street look like someone lives there.</p>
+<h2>6. UI Design</h2>
+<h3>6.1 Layout (landscape-first, one-hand friendly)</h3>
+<ul>
+<li><strong>Top-left:</strong> avatar portrait and needs (hunger, energy, hygiene, mood) as compact rings.</li>
+<li><strong>Top-right:</strong> ₦ balance, date and time, weather icon.</li>
+<li><strong>Bottom-left:</strong> virtual joystick or tap-to-move (player choice).</li>
+<li><strong>Bottom-right:</strong> big context button (Talk, Cook, Sleep, Work). Changes with what you're near.</li>
+<li><strong>Bottom-center:</strong> <strong>phone icon</strong> opens the in-game phone.</li>
+<li><strong>Portrait mode:</strong> simplified layout planned for later.</li>
+</ul>
+<h3>6.2 The Phone (main menu as an in-world object)</h3>
+<p>Apps: <strong>Messages</strong> (NPCs, family, scams), <strong>Bank</strong> (balance, receipts, alerts), <strong>Contacts</strong>, <strong>Map</strong>, <strong>Jobs and Hustles</strong>, <strong>Notes</strong> (goals), <strong>Shop</strong>, <strong>Settings</strong>. This fits the world and gives scam events a natural home (fake alerts arrive as phone notifications).</p>
+<h3>6.3 Interaction and Dialogue</h3>
+<ul>
+<li>Tap a person or object for a <strong>radial action menu</strong> (max 4 to 6 icons).</li>
+<li><strong>Dialogue:</strong> speech bubble with portrait, then 2 to 4 choice cards. Show the likely effect icon (relationship, money, risk).</li>
+<li><strong>Negotiation:</strong> a patience meter and price slider.</li>
+<li><strong>Notifications:</strong> short toasts (top-center), with big rewards getting a small celebration.</li>
+</ul>
+<h3>6.4 Visual Language</h3>
+<ul>
+<li><strong>Panels:</strong> rounded, warm-cream cards with soft shadow and a thin pattern border (subtle ankara or adire trim).</li>
+<li><strong>Icons:</strong> chunky, rounded, 2 px dark outline, flat color fill, consistent set.</li>
+<li><strong>Typography:</strong> rounded friendly sans (e.g., Nunito or Baloo) for text; a bold display face for headings; tabular numerals for money.</li>
+<li><strong>Money format:</strong> <code>₦15,000,000</code> in full; <code>₦15M</code> in tight spaces. Gold for gains, red for losses.</li>
+<li><strong>Motion:</strong> fast and soft (150 to 250 ms ease-out). Count-up animation on money changes.</li>
+</ul>
+<h3>6.5 Accessibility and Inclusion</h3>
+<ul>
+<li>Text size slider, high-contrast mode, color-blind-safe status icons (shape plus color).</li>
+<li>English and Pidgin text options; subtitles for all voice.</li>
+<li>Large touch targets (min 48 dp).</li>
+<li>Language-switch ready for Hausa, Yoruba, Igbo, and Tiv later.</li>
+</ul>
+<h2>7. Feel and Juice</h2>
+<ul>
+<li><strong>Camera:</strong> gentle follow, smooth zoom, slight shake only on big events.</li>
+<li><strong>Feedback:</strong> coin-pop and POS-beep sounds on payments, a soft chime on goal progress, a tense low tone on scam attempts.</li>
+<li><strong>Haptics:</strong> light tap on actions, double pulse on money, short buzz on danger.</li>
+<li><strong>Transitions:</strong> day-night crossfades, &quot;time passes&quot; fade for sleep and long tasks.</li>
+<li><strong>Pacing:</strong> 1 in-game day is about 10 to 12 real minutes (tunable). Skip and speed-up controls.</li>
+<li><strong>Animation polish:</strong> anticipation and follow-through on key actions (hammering, cooking, farm work), small idle variations to avoid robotic NPCs.</li>
+</ul>
+<h2>8. Audio</h2>
+<ul>
+<li><strong>Music:</strong> original score blending Afrobeats, highlife, and gentle percussion. Layers change by district and time of day (market, nightlife, village, home).</li>
+<li><strong>Ambience:</strong> crowds, roosters, generators, motorbikes, rain on zinc, call to prayer and church bells (respectful, optional volume).</li>
+<li><strong>Voice:</strong> short Nigerian English and Pidgin barks for greetings and reactions, not full voice acting for MVP.</li>
+<li><strong>UI sounds:</strong> soft taps, paper rustle for notes, phone tones.</li>
+</ul>
+<h2>9. Performance Budgets (low-end Android first)</h2>
+<ul>
+<li><strong>Target:</strong> 30 fps on a 2 to 3 GB RAM Android phone; 60 fps on mid-range and up.</li>
+<li><strong>Draw calls:</strong> under 150 per frame; triangles under 150k visible.</li>
+<li><strong>Install size:</strong> under 150 MB; stream later districts as downloads.</li>
+<li><strong>Offline-first:</strong> the game must work with no internet and low data use.</li>
+<li><strong>Battery:</strong> reduce shadow quality and effects on low settings.</li>
+<li><strong>Graphics presets:</strong> Low (baked sprites, minimal effects), Medium, High.</li>
+</ul>
+<h2>10. MVP Asset Checklist</h2>
+<ul>
+<li><strong>Characters:</strong> 2 base bodies, ~25 hair/outfit parts, ~10 NPC variants.</li>
+<li><strong>Buildings:</strong> home (interior and exterior), market stall set, shop, lounge/club, farm lot kit (walls, pond, coop, beds, water tower).</li>
+<li><strong>Props:</strong> about 120 (furniture, food, tools, market goods, vehicles).</li>
+<li><strong>Animations:</strong> about 25 character clips.</li>
+<li><strong>UI:</strong> HUD, phone (8 apps), radial menu, dialogue, 60+ icons.</li>
+<li><strong>Audio:</strong> 3 music loops, 30+ sound effects, ambience beds.</li>
+</ul>
+<h2>11. Production Pipeline</h2>
+<ol>
+<li><strong>Concept:</strong> moodboards and key art (hand-drawn or AI-assisted concepting), then approval.</li>
+<li><strong>Modeling:</strong> Blender, using the modular kit approach.</li>
+<li><strong>Texturing:</strong> Krita or Procreate for hand-painting; a pattern library for textiles.</li>
+<li><strong>Rigging and animation:</strong> Blender or Mixamo base clips, hand-tuned.</li>
+<li><strong>Engine:</strong> Godot 4 or Three.js, with a style test scene first.</li>
+<li><strong>Style guide:</strong> a living document with palettes, UI rules, and do/don't examples.</li>
+</ol>
+<h2>12. Open Questions</h2>
+<ol>
+<li>3D with sprite fallback (recommended), or full 2D sprites from the start?</li>
+<li>Landscape-only or both orientations?</li>
+<li>Voice: Pidgin barks only, or more?</li>
+<li>Who creates the art: in-house, freelancers, or asset packs?</li>
+<li>Final age rating target?</li>
+</ol>
+
+</body></html>

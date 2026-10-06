@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MakeHam: look and feel</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@500;700&display=swap">
+<style>
+:root{--bg:#FFF6E5;--ink:#2A2320;--mut:#6b5d52;--card:#fff;--line:#e6d6bb;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17192e;--ink:#F4EAD8;--mut:#b9aea0;--card:#232744;--line:#343a63}}
+:root[data-theme="dark"]{--bg:#17192e;--ink:#F4EAD8;--mut:#b9aea0;--card:#232744;--line:#343a63}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:500 16px/1.5 Nunito,system-ui,sans-serif}
+.w{max-width:940px;margin:0 auto;padding:20px 16px 48px}
+h1,h2,h3{font-family:'Baloo 2',system-ui,sans-serif;line-height:1.1;margin:0}
+h1{font-size:clamp(34px,8vw,60px);font-weight:800;letter-spacing:-.5px}
+h2{font-size:26px;font-weight:800;margin:44px 0 6px}
+p{margin:6px 0 14px;max-width:62ch;color:var(--mut)}
+.stage{position:relative;aspect-ratio:16/10;border-radius:22px;overflow:hidden;container-type:inline-size;background:linear-gradient(180deg,#cfe6ee 0,#e9eed0 28%,#9cc774 100%);box-shadow:0 10px 30px #0003;touch-action:manipulation}
+.stage svg{width:100%;height:100%;display:block;cursor:pointer}
+#pc{transition:transform .8s cubic-bezier(.4,0,.2,1)}
+.nite{position:absolute;inset:0;background:#1B1F3A;mix-blend-mode:multiply;opacity:0;transition:opacity 1s;pointer-events:none}
+.stage.n .nite{opacity:.62}
+.hud{position:absolute;pointer-events:none;font-family:'Baloo 2',sans-serif;font-size:max(9px,2.3cqw);color:#2A2320}
+.hud *{pointer-events:auto}
+.card{background:#FFF6E5ee;border:max(1px,.25cqw) solid #2A2320;border-radius:2cqw;padding:1cqw 1.6cqw;box-shadow:0 .5cqw 0 #2A232055}
+.tl{left:1.6cqw;top:1.6cqw;display:flex;gap:1.2cqw;align-items:center}
+.av{width:7cqw;height:7cqw;border-radius:50%;background:#F2B138;border:.3cqw solid #2A2320;display:grid;place-items:center;font-size:4.4cqw}
+.rg{display:flex;gap:.9cqw}
+.rg i{width:4.6cqw;height:4.6cqw;border-radius:50%;background:conic-gradient(var(--c) var(--p),#2A232022 0);display:grid;place-items:center;position:relative;font-style:normal;font-size:2.3cqw}
+.rg i::before{content:"";position:absolute;inset:.55cqw;border-radius:50%;background:#FFF6E5}
+.rg i b{position:relative;font-weight:400}
+.tr{right:1.6cqw;top:1.6cqw;text-align:right;line-height:1.15}
+.tr strong{display:block;font-size:3.4cqw;color:#9a6200}
+.joy{left:2cqw;bottom:2cqw;width:11cqw;height:11cqw;border-radius:50%;background:#FFF6E566;border:.3cqw solid #2A232066;display:grid;place-items:center}
+.joy::after{content:"";width:4.6cqw;height:4.6cqw;border-radius:50%;background:#2A2320aa}
+.bc{left:50%;bottom:2cqw;transform:translateX(-50%)}
+.bt{font:800 1em 'Baloo 2',sans-serif;border:.3cqw solid #2A2320;background:#F2B138;color:#2A2320;border-radius:2cqw;padding:1.1cqw 2.4cqw;box-shadow:0 .6cqw 0 #2A2320;cursor:pointer}
+.bt:active{transform:translateY(.4cqw);box-shadow:0 .2cqw 0 #2A2320}
+.br{right:2cqw;bottom:2cqw}
+.br .bt{font-size:3.2cqw;padding:1.6cqw 3.4cqw;background:#4C9A3F;color:#fff}
+.tg{left:15cqw;bottom:2.6cqw}
+.tg .bt{background:#FFF6E5;font-size:2.2cqw}
+.toast{position:absolute;left:50%;top:11cqw;transform:translate(-50%,-20px);background:#2A2320;color:#FFF6E5;font:700 max(10px,2.5cqw) Nunito,sans-serif;padding:1cqw 2.4cqw;border-radius:3cqw;opacity:0;transition:.3s;pointer-events:none;white-space:nowrap}
+.toast.s{opacity:1;transform:translate(-50%,0)}
+.phone{position:absolute;right:2cqw;bottom:12cqw;width:27cqw;height:66%;background:#1B1F3A;border:.5cqw solid #2A2320;border-radius:3cqw;padding:1.6cqw;color:#FFF6E5;transform:translateY(110%);transition:transform .35s;font-size:max(8px,2cqw);overflow:hidden}
+.phone.o{transform:none}
+.pb{height:100%;display:flex;flex-direction:column;gap:1cqw;font-family:Nunito,sans-serif}
+.apps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2cqw;text-align:center}
+.apps button{background:#FFF6E51a;border:0;border-radius:1.6cqw;padding:.8cqw 0;color:inherit;font:inherit;cursor:pointer}
+.apps span{display:block;font-size:3cqw}
+.ban{background:#E0457B;border:0;color:#fff;border-radius:1.6cqw;padding:1.2cqw;text-align:left;font:inherit;cursor:pointer}
+.msg{background:#FFF6E51f;border-radius:1.6cqw;padding:1.2cqw}
+.ch{background:#F2B138;color:#2A2320;border:0;border-radius:1.6cqw;padding:1.1cqw;font:700 1em Nunito,sans-serif;cursor:pointer;text-align:left}
+.sw{display:flex;border-radius:16px;overflow:hidden;min-height:92px;margin-top:10px}
+.sw div{flex:var(--f,1);padding:8px;font-size:12px;font-weight:700;display:flex;align-items:flex-end;line-height:1.15}
+.tx{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:12px;margin-top:10px}
+.tx div{aspect-ratio:1;border-radius:14px;border:2px solid var(--ink);display:flex;align-items:flex-end;padding:8px;font:800 14px 'Baloo 2',sans-serif;color:#fff;text-shadow:0 1px 3px #000a}
+.cast{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-top:10px}
+.cast figure{margin:0;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:10px;text-align:center}
+.cast svg{height:190px;width:100%}
+.cast figcaption{font-size:13px;color:var(--mut)}
+.row{display:flex;gap:18px;flex-wrap:wrap;align-items:flex-start;margin-top:10px}
+.dlg{flex:1 1 300px;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:14px}
+.chat{background:#F2B13833;border-radius:14px;padding:10px 12px;margin-bottom:10px}
+.opt{display:flex;justify-content:space-between;gap:8px;border:2px solid var(--ink);border-radius:14px;padding:8px 12px;margin-top:8px;font-weight:700}
+.opt small{color:var(--mut);font-weight:700;white-space:nowrap}
+.rad{position:relative;width:200px;height:200px;flex:0 0 auto;margin:0 auto}
+.rad b{position:absolute;width:62px;height:62px;border-radius:50%;background:#F2B138;color:#2A2320;border:3px solid #2A2320;display:grid;place-items:center;font:800 12px 'Baloo 2';text-align:center;line-height:1}
+.rad b span{display:block;font-size:20px}
+.rad .c{left:69px;top:69px;background:#2A2320;color:#FFF6E5}
+.mn{font:800 28px 'Baloo 2';letter-spacing:-.3px}
+.g{color:#4C9A3F}.r{color:#C8542B}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="w">
+<h1>MakeHam</h1>
+<p>A first look at the HUD, the world, and the people. Tap the ground to walk. Walk to the pond, coop, pigs, or beds and the green button changes. Open the phone and check your messages.</p>
+
+<div class="stage" id="st">
+<svg id="sv" viewBox="0 0 560 350" preserveAspectRatio="xMidYMid meet"></svg>
+<div class="nite"></div>
+<div class="hud tl card"><div class="av">🧑🏾‍🌾</div><div class="rg">
+<i style="--c:#C8542B;--p:72%"><b>🍲</b></i><i style="--c:#F2B138;--p:55%"><b>⚡</b></i><i style="--c:#2F7F86;--p:88%"><b>🚿</b></i><i style="--c:#E0457B;--p:64%"><b>🙂</b></i></div></div>
+<div class="hud tr card"><strong id="mn">₦14,236,500</strong><span id="tm">Day 3, 8:30 AM ☀️</span></div>
+<div class="hud joy"></div>
+<div class="hud tg"><button class="bt" id="tg">Night</button></div>
+<div class="hud bc"><button class="bt" id="pb">📱 Phone</button></div>
+<div class="hud br"><button class="bt" id="ctx">Look around</button></div>
+<div class="phone" id="ph"><div class="pb" id="pbody"></div></div>
+<div class="toast" id="ts"></div>
+</div>
+
+<h2>Colors</h2>
+<p>Warm by day, indigo with neon accents at night. Gold is only for money and rewards.</p>
+<div class="sw">
+<div style="--f:2;background:#C8542B;color:#fff">Laterite #C8542B</div>
+<div style="--f:1.4;background:#E3C9A0">Sand #E3C9A0</div>
+<div style="--f:2;background:#4C9A3F;color:#fff">Farm green #4C9A3F</div>
+<div style="--f:1.4;background:#2F7F86;color:#fff">River #2F7F86</div>
+<div style="--f:1.2;background:#9FB3C8">Zinc #9FB3C8</div>
+<div style="--f:1.2;background:#F2B138">Gold #F2B138</div>
+<div style="--f:1.4;background:#E0457B;color:#fff">Neon #E0457B</div>
+<div style="--f:1.6;background:#1B1F3A;color:#fff">Night #1B1F3A</div>
+</div>
+
+<h2>Type, money, and talk</h2>
+<p>Baloo 2 for headings and numbers, Nunito for text. Money shows in full where there is room and as ₦15M where there isn't.</p>
+<div class="row">
+<div class="dlg">
+<div class="mn">₦15,000,000 <span class="g">+₦6,000</span> <span class="r">−₦4,500</span></div>
+<div class="chat" style="margin-top:12px"><b>Mama Ngozi, market woman</b><br>Oga, na ₦3,800 per kilo for the fish? Abeg reduce small.</div>
+<div class="opt">Hold your price <small>trust −2</small></div>
+<div class="opt">Small discount <small>trust +3, −₦300/kg</small></div>
+<div class="opt">Offer a bundle deal <small>trust +5</small></div>
+</div>
+<div class="rad">
+<b class="c">Mama<br>Ngozi</b>
+<b style="left:69px;top:0"><span>💬</span>Talk</b>
+<b style="left:138px;top:69px"><span>🎁</span>Gift</b>
+<b style="left:69px;top:138px"><span>😄</span>Joke</b>
+<b style="left:0;top:69px"><span>💸</span>Borrow</b>
+</div>
+</div>
+
+<h2>Textures</h2>
+<p>Hand-painted and lightly weathered. Textile patterns repeat across clothes, stalls, curtains, and UI trim.</p>
+<div class="tx">
+<div style="background:repeating-linear-gradient(90deg,#9FB3C8 0 10px,#7f97b0 10px 13px)">Zinc roof</div>
+<div style="background:#C9C5BD linear-gradient(#0002 2px,transparent 2px) 0 0/44px 22px,linear-gradient(90deg,#0002 2px,transparent 2px) 0 0/44px 22px;color:#2A2320;text-shadow:none">Block wall</div>
+<div style="background:radial-gradient(#0003 1.5px,transparent 2px) 0 0/9px 9px,#C8542B">Laterite</div>
+<div style="background:repeating-linear-gradient(0deg,#8a5a33 0 7px,#734624 7px 9px)">Wood</div>
+<div style="background:radial-gradient(circle,#F2B138 0 14%,transparent 15%) 0 0/34px 34px,radial-gradient(circle,#E0457B 0 9%,transparent 10%) 17px 17px/34px 34px,#2F7F86">Ankara</div>
+<div style="background:repeating-radial-gradient(circle at 50% 50%,#1B3A6A 0 5px,#e8efff 5px 7px) 0 0/44px 44px">Adire</div>
+<div style="background:radial-gradient(circle,#2f6d29 0 25%,transparent 26%) 0 0/16px 16px,#4C9A3F">Veggie bed</div>
+<div style="background:repeating-linear-gradient(115deg,#2F7F86 0 14px,#3a95a0 14px 18px)">Pond water</div>
+</div>
+
+<h2>People</h2>
+<p>Readable silhouettes, a wide range of skin tones, and clothing from across the country.</p>
+<div class="cast" id="cast"></div>
+</div>
+
+<script>
+const $=s=>document.querySelector(s),OX=280,OY=62,TW=24,TH=12,ZH=26;
+const P=(x,y,z=0)=>[OX+(x-y)*TW,OY+(x+y)*TH-z*ZH];
+const sh=(c,a)=>{const n=parseInt(c.slice(1),16),k=v=>Math.max(0,Math.min(255,v));return'#'+((1<<24)|(k((n>>16)+a)<<16)|(k((n>>8&255)+a)<<8)|k((n&255)+a)).toString(16).slice(1)};
+const pt=a=>a.map(p=>p.join(',')).join(' ');
+const box=o=>{const{x,y,w,d,h,c,z=0}=o,t=z+h;return`<polygon points="${pt([P(x,y,t),P(x+w,y,t),P(x+w,y+d,t),P(x,y+d,t)])}" fill="${c}"/><polygon points="${pt([P(x,y+d,z),P(x+w,y+d,z),P(x+w,y+d,t),P(x,y+d,t)])}" fill="${sh(c,-22)}"/><polygon points="${pt([P(x+w,y,z),P(x+w,y+d,z),P(x+w,y+d,t),P(x+w,y,t)])}" fill="${sh(c,-42)}"/>`};
+const K={zn:'#9FB3C8',cn:'#C9C5BD',wd:'#9a6a3c',gr:'#4C9A3F',tl:'#2F7F86'};
+const back=[],mid=[],front=[];
+const add=(a,x,y,w,d,h,c,z=0,b=0)=>a.push({x,y,w,d,h,c,z,k:x+w+y+d+z*.01+b});
+add(back,-.14,0,.14,10,.6,'#d8d3c8');add(back,0,-.14,10,.14,.6,'#d8d3c8');
+add(mid,.5,.5,2,1.6,1,'#b88a5a');add(mid,.4,.4,2.2,1.8,.12,K.zn,1);
+[[4.3,.5],[7.4,.5],[4.3,1.7],[7.4,1.7]].forEach(p=>add(mid,p[0],p[1],.15,.15,.7,K.wd));
+add(mid,4.2,.4,3.4,1.5,.9,K.wd,.7);add(mid,4.1,.3,3.6,1.7,.12,K.zn,1.6);
+add(mid,8.6,.5,.9,.9,.6,K.cn);add(mid,8.65,.55,.8,.8,.9,'#2a6fd0',1.5);add(mid,8.6,.5,.1,.1,.9,'#222',.6);add(mid,9.4,1.3,.1,.1,.9,'#222',.6);
+add(mid,.4,3,2.4,2.4,.35,K.cn);add(mid,.3,2.9,2.6,2.6,.1,K.zn,1.15,.3);[[.3,2.9],[2.8,2.9],[.3,5.3],[2.8,5.3]].forEach(p=>add(mid,p[0],p[1],.1,.1,1.15,K.wd));
+add(mid,3.2,2.6,4,5.4,.25,K.cn);add(mid,3.5,2.9,3.4,4.8,.04,'#2F7F86',.25,1);
+add(mid,7.7,4.2,2,2.2,.3,K.wd);add(mid,7.6,4.1,2.2,2.4,.1,K.zn,1.1,.3);[[7.6,4.1],[9.7,4.1],[7.6,6.4],[9.7,6.4]].forEach(p=>add(mid,p[0],p[1],.1,.1,1.1,K.wd));
+add(mid,.5,5.7,1.2,.9,.4,'#6b4a2b');
+for(let i=0;i<4;i++)add(mid,.9+i*.6,6.9,.4,2.4,.18,i%2?'#3f8a35':K.gr);
+for(let i=0;i<3;i++)add(mid,7.3+i*.6,7.1,.4,2.2,.18,i%2?'#3f8a35':K.gr);
+add(front,0,10,4.2,.14,.3,'#d8d3c8');add(front,5.8,10,4.2,.14,.3,'#d8d3c8');add(front,10,0,.14,10.14,.3,'#d8d3c8');
+add(front,4.1,10,.22,.22,.9,'#222');add(front,5.7,10,.22,.22,.9,'#222');
+const gp=pt([P(0,0),P(10,0),P(10,10),P(0,10)]);
+let s=`<polygon points="${gp}" fill="#dcc08f"/><polygon points="${pt([P(-.14,-.14),P(10.14,-.14),P(10.14,10.14),P(-.14,10.14)])}" fill="none" stroke="#0002" stroke-width="2"/>`;
+[back,mid.sort((a,b)=>a.k-b.k),front].forEach(a=>a.forEach(o=>s+=box(o)));
+for(let i=0;i<9;i++){const q=P(3.8+(i*.37)%2.8,3.3+(i*.83)%4,.3);s+=`<ellipse cx="${q[0]}" cy="${q[1]}" rx="5" ry="1.6" fill="#173f45" opacity=".7"/>`}
+s+=`<g id="pc"><ellipse cx="0" cy="0" rx="8" ry="3" fill="#0003"/><rect x="-5" y="-14" width="10" height="14" rx="3" fill="#E0457B"/><circle cx="0" cy="-20" r="6" fill="#8a5a3a"/><path d="M-6-21a6 6 0 0112 0z" fill="#1d1410"/></g>`;
+$('#sv').innerHTML=s;
+let pos={x:5,y:8.6},money=14236500;
+const hs=[{n:'Feed fish',x:5,y:5.2,r:2.6,d:-4500,t:'Fish fed. Feed cost ₦4,500'},{n:'Collect eggs',x:6,y:1.4,r:2.2,d:6000,t:'Eggs sold to the stall. +₦6,000'},{n:'Feed pigs',x:1.6,y:4.2,r:2,d:-8200,t:'Pigs fed. Feed cost ₦8,200'},{n:'Water beds',x:2.4,y:8,r:2.2,d:0,t:'Beds watered. Veggies grow a day'},{n:'Go out',x:5,y:9.6,r:1.6,d:0,t:'The neighborhood map is next on the list'}];
+const near=()=>{let b=null,m=9;hs.forEach(h=>{const d=Math.hypot(h.x-pos.x,h.y-pos.y);if(d<h.r&&d<m){m=d;b=h}});return b};
+const place=()=>{const q=P(pos.x,pos.y);$('#pc').style.transform=`translate(${q[0]}px,${q[1]}px)`;const h=near();$('#ctx').textContent=h?h.n:'Look around'};
+const fm=n=>'₦'+n.toLocaleString('en-US');
+const toast=t=>{const e=$('#ts');e.textContent=t;e.classList.add('s');clearTimeout(toast.i);toast.i=setTimeout(()=>e.classList.remove('s'),2200)};
+const setM=d=>{money+=d;$('#mn').textContent=fm(money)};
+$('#pc').style.transition='none';place();requestAnimationFrame(()=>$('#pc').style.transition='');
+$('#sv').addEventListener('click',e=>{const r=$('#sv').getBoundingClientRect(),sx=(e.clientX-r.left)/r.width*560,sy=(e.clientY-r.top)/r.height*350,a=(sx-OX)/TW,b=(sy-OY)/TH;pos={x:Math.max(.6,Math.min(9.4,(a+b)/2)),y:Math.max(.6,Math.min(9.4,(b-a)/2))};place()});
+$('#ctx').onclick=()=>{const h=near();if(!h)return toast('Tap the ground to walk somewhere');setM(h.d);toast(h.t)};
+$('#tg').onclick=()=>{const n=$('#st').classList.toggle('n');$('#tg').textContent=n?'Day':'Night';$('#tm').textContent=n?'Day 3, 9:45 PM 🌙':'Day 3, 8:30 AM ☀️'};
+const ph=$('#ph'),pb=$('#pbody');
+const home=()=>{pb.innerHTML=`<div>9:41 📶</div><div class="apps">${[['💬','Chat'],['🏦','Bank'],['👥','People'],['🗺️','Map'],['💼','Jobs'],['📝','Goals'],['🛒','Shop'],['⚙️','Set']].map(a=>`<button data-a="${a[1]}"><span>${a[0]}</span>${a[1]}</button>`).join('')}</div><button class="ban" id="bn"><b>New message</b><br>Unknown: ALERT credit ₦350,000…</button>`;pb.querySelectorAll('.apps button').forEach(b=>b.onclick=()=>b.dataset.a=='Chat'?msg():toast('Coming soon'));$('#bn').onclick=msg};
+const msg=()=>{pb.innerHTML=`<div class="msg"><b>Unknown</b><br>ALERT: ₦350,000 credited. Send the 40 fish crates now. Bank app is slow.</div><button class="ch" id="c1">Check my Bank app first</button><button class="ch" id="c2">Release the crates</button><button class="ch" id="c3" style="background:#FFF6E5">Back</button>`;
+$('#c1').onclick=()=>{toast('No credit. Scam blocked. Street smarts +2');home()};
+$('#c2').onclick=()=>{setM(-280000);toast('No money came. −₦280,000 stock. Wahala +1');home()};$('#c3').onclick=home};
+home();$('#pb').onclick=()=>ph.classList.toggle('o');
+const per=o=>{const b={dress:`<path d="M24 52h32l8 60H16z" fill="${o.m}"/><circle cx="28" cy="80" r="3" fill="${o.a}"/><circle cx="46" cy="72" r="3" fill="${o.a}"/><circle cx="38" cy="96" r="3" fill="${o.a}"/><circle cx="52" cy="98" r="3" fill="${o.a}"/>`,agb:`<path d="M14 52h52l5 62H9z" fill="${o.m}"/><rect x="34" y="52" width="12" height="62" fill="${o.a}"/>`,kaf:`<rect x="21" y="52" width="38" height="64" rx="6" fill="${o.m}"/><path d="M32 52l8 12 8-12z" fill="${o.a}"/>`}[o.t];
+const hair={braids:`<path d="M27 28a13 13 0 0126 0z" fill="${o.h}"/>${[26,30,34,46,50,54].map(x=>`<path d="M${x} 28L${x-(x<40?3:-3)} 66" stroke="${o.h}" stroke-width="3" fill="none"/>`).join('')}`,low:`<path d="M27 30a13 13 0 0126 0 13 8 0 00-26 0z" fill="${o.h}"/>`,gele:`<ellipse cx="40" cy="16" rx="25" ry="11" fill="${o.a}"/><ellipse cx="40" cy="14" rx="14" ry="6" fill="${o.m}"/>`,hij:`<path d="M24 34a16 20 0 0132 0l6 44H18z" fill="${o.m}"/><ellipse cx="40" cy="34" rx="11" ry="13" fill="${o.s}"/>`,cap:`<path d="M27 26a13 13 0 0126 0z" fill="${o.m}"/><rect x="26" y="25" width="28" height="4" rx="2" fill="${o.a}"/>`}[o.hs];
+return`<svg viewBox="0 0 80 140"><ellipse cx="40" cy="134" rx="22" ry="5" fill="#0002"/><rect x="29" y="100" width="9" height="30" fill="#2A2320"/><rect x="42" y="100" width="9" height="30" fill="#2A2320"/>${o.hs=='hij'?'':`<rect x="12" y="54" width="9" height="38" rx="4" fill="${o.s}"/><rect x="59" y="54" width="9" height="38" rx="4" fill="${o.s}"/><rect x="36" y="44" width="8" height="10" fill="${o.s}"/><ellipse cx="40" cy="32" rx="13" ry="15" fill="${o.s}"/>`}${b}${o.hs=='hij'?`<ellipse cx="40" cy="34" rx="11" ry="13" fill="${o.s}"/>`:''}<circle cx="35" cy="33" r="1.6" fill="#2A2320"/><circle cx="45" cy="33" r="1.6" fill="#2A2320"/><path d="M35 40q5 4 10 0" stroke="#2A2320" stroke-width="1.6" fill="none"/>${hair}</svg>`};
+$('#cast').innerHTML=[{s:'#5a3a26',h:'#16100c',hs:'braids',m:'#2F7F86',a:'#F2B138',t:'dress',n:'Ada, caterer'},{s:'#8a5a3a',h:'#16100c',hs:'low',m:'#e9e1cf',a:'#C8542B',t:'agb',n:'Tunde, DJ'},{s:'#a56d48',h:'#16100c',hs:'hij',m:'#1B3A6A',a:'#e8efff',t:'dress',n:'Zainab, tailor'},{s:'#6b4430',h:'#16100c',hs:'cap',m:'#4C9A3F',a:'#F2B138',t:'kaf',n:'Terkimbi, farmer'},{s:'#3e2819',h:'#16100c',hs:'gele',m:'#E0457B',a:'#F2B138',t:'dress',n:'Mama Ngozi, trader'}].map(o=>`<figure>${per(o)}<figcaption>${o.n}</figcaption></figure>`).join('');
+</script>
+</body>
+</html>
